@@ -6,4 +6,6 @@ int main()  // function header
   cout << "Come up and c++ "; // print message 
   cout << endl;  // start a new line
   cout << "You won't regret it!" << endl; 
-}
+
+  return 0;
+} // end of function body
