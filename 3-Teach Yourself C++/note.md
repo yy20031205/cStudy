@@ -75,3 +75,26 @@ int daysInYear = 365;
 * sizeof(…)看起来像函数调用，但它并不是函数，而是运算符。有趣的是，程序员不能定义这个运算符，因此不能重载它。
 * 不要编写必须依靠运算符优先级表才能理解的 复杂表达式；应确保代码对人来说也易于理解。
 * 不要将++Variable 与 Variable++混为一谈，以为 它们等效。用于赋值时，它们的效果不同
+
+### 第六章 控制程序流程
+
+#### 6.1 if
+
+#### 6.2 swich case
+* 每个 case 标签都必须是常量
+```c++
+switch(expression) 
+{ 
+  case LabelA:
+    DoSomething; 
+    break;
+  case LabelB:
+    DoSomething; 
+    break;
+  default:
+    dosome;
+    break;
+ }
+```
+* 三目运算符
+`int max = (num1 > num2)? num1 : num2;`
