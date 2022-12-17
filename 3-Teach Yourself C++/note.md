@@ -130,3 +130,45 @@ void DisplayIntegers(int[] numbers, int Length);
 #### lambda函数
 * lambda 函数是 C++11 引入的
 * 语法：`[optional parameters](parameter list){ statements; }`
+
+### 第八章 阐述指针和引用
+#### 8.1 指针
+* 指针是存储内存地址的变量，指针变量用于存储内存地址
+* 除非对指针进行初始化，否则它包含的值将是随机的
+* 在特定的系统中，存储地址所需的字节数是固定的，结果取决于编译程序时使用的编译器和针对的操作系统。
+* 在初始化指针或释放指针后将其设置为 NULL，并在使用运算符*对 指针解除引用前检查它是否有效（将其与 NULL 比较）。
+#### 8.2 动态内存分配
+* new 表示请求分配内存，并不能保证分配请求总能得到满足，因为这取决于系统的状态 以及内存资源的可用性
+```c++
+// pointer to a block of 10 integers
+int* pointToNums = new int[10];
+// release memory
+delete pointToNums;
+```
+* 对于使用 new[…]分配的内存块，需要使用 delete[]来释放；对于使用 new 为单个元素分 配的内存，需要使用 delete 来释放
+#### 8.3 const修饰指针
+* 指针包含的地址是常量，不能修改，但可修改指针指向的数据
+```c++
+int daysInMonth = 30;
+int* const pDaysInMonth = &daysInMonth;
+*pDaysInMonth = 31; // OK! Data pointed to can be changed 
+int daysInLunarMonth = 28; 
+pDaysInMonth = &daysInLunarMonth; // Not OK! Cannot change address!
+```
+* 指针指向的数据为常量，不能修改，但可以修改指针包含的地址，即指针可以指向其他地方
+```c++
+int hoursInDay = 24;
+const int* pointsToInt = &hoursInDay;
+int monthsInYear = 12;
+pointsToInt = &monthsInYear; // OK!
+*pointsToInt = 13; // Not OK! Cannot change data being pointed to 
+int* newPointer = pointsToInt; // Not OK! Cannot assign const to non-const
+```
+* 指针包含的地址以及它指向的值都是常量，不能修改
+```c++
+int hoursInDay = 24; 
+const int* const pHoursInDay = &hoursInDay; 
+*pHoursInDay = 25; // Not OK! Cannot change data being pointed to 
+int daysInMonth = 30; 
+pHoursInDay = &daysInMonth; // Not OK! Cannot change address
+```
