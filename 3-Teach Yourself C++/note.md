@@ -172,3 +172,28 @@ const int* const pHoursInDay = &hoursInDay;
 int daysInMonth = 30; 
 pHoursInDay = &daysInMonth; // Not OK! Cannot change address
 ```
+### 第九章 类和对象
+#### 类
+* 构造函数：构造函数是一种特殊的函数，它与类同名且不返回任何值，可以重载
+* 作用域解析运算符`::`：Human::date指的是在Human类中声明的变量date，而::date 表示全局作用域中的变量 date
+```c++
+// 初始化列表的构造函数:初始化列表由包含在括号中的参数声明后面的冒号标识，冒号后面列出了各个成员变量及其初始 值。初始值可以是参数（如 humansName），也可以是固定的值
+class Human
+{
+private:
+  string name;
+  int age;
+public:
+   
+   // 
+  Human(string humanName, int humanAge)
+        :name(hunmanName), age(humanAge) // 初始化列表
+  {
+    name = humanName;
+    age = humanAge;
+  }
+  ...
+};
+
+```
+* 析构函数：当对象不再在作用域内或通过 delete 被删除进而被销毁时，都将调用析构函数
